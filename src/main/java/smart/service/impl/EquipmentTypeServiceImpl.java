@@ -1,0 +1,48 @@
+package smart.service.impl;
+
+import smart.dao.EquipmentTypeDao;
+import smart.model.EquipmentType;
+import smart.model.PageBean;
+import smart.service.EquipmentTypeService;
+import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
+import java.util.List;
+
+@Service("equipmentTypeService")
+public class EquipmentTypeServiceImpl implements EquipmentTypeService{
+
+	@Resource
+	private EquipmentTypeDao equipmentTypeDao;
+	
+	@Override
+	public List<EquipmentType> find(PageBean pageBean, EquipmentType s_equipmentType) {
+		return equipmentTypeDao.find(pageBean, s_equipmentType);
+	}
+
+	@Override
+	public int count(EquipmentType s_equipmentType) {
+		return equipmentTypeDao.count(s_equipmentType);
+	}
+
+	@Override
+	public void add(EquipmentType equipmentType) {
+		equipmentTypeDao.add(equipmentType);
+	}
+
+	@Override
+	public void update(EquipmentType equipmentType) {
+		equipmentTypeDao.update(equipmentType);
+	}
+
+	@Override
+	public void delete(int id) {
+		equipmentTypeDao.delete(id);
+	}
+
+	@Override
+	public EquipmentType loadById(int id) {
+		return equipmentTypeDao.loadById(id);
+	}
+
+}
